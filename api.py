@@ -5,7 +5,7 @@ from db import SimpleKVDb
 
 
 app = Flask(__name__)
-db = SimpleKVDb(os.path.expanduser('~')+'/file.txt')
+db = SimpleKVDb('/app/file.txt')
 
 @app.route('/get', methods=['GET'])
 def get_record():
