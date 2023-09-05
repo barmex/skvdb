@@ -6,4 +6,5 @@ WORKDIR /app
 COPY api.py /app
 COPY db.py /app
 COPY gunicorn-starter.sh /app
+RUN chmod 755 /app/gunicorn-starter.sh
 ENTRYPOINT ["./gunicorn-starter.sh"]
