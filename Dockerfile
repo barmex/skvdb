@@ -6,4 +6,4 @@ WORKDIR /app
 COPY api.py /app
 COPY db.py /app
 RUN chmod 755 -R /app
-CMD["gunicorn", "api:app", "-b", "0.0.0.0:8001"]
+CMD ["gunicorn", "api:app", "-b", "0.0.0.0:8001"]
