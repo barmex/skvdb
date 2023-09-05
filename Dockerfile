@@ -6,4 +6,4 @@ WORKDIR /app
 COPY api.py /app
 COPY db.py /app
 COPY gunicorn-starter.sh /app
-ENTRYPOINT ["./gunicorn_starter.sh"]
+ENTRYPOINT ["./gunicorn-starter.sh"]
