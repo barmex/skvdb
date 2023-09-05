@@ -5,7 +5,7 @@ import os
 class SimpleKVDb(object):
     def __init__(self, filename=''):
         self.filename = filename
-        if os.path.exists(filename):
+        if os.path.exists(filename) and os.path.getsize(filename) > 0 :
             self._load(self.filename)
         else:
             self.db = {}
