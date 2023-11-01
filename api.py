@@ -1,6 +1,7 @@
 import json
 import os
 from flask import abort, Flask, request
+from flask_apscheduler import APScheduler
 from db import SimpleKVDb
 
 
@@ -63,5 +64,12 @@ def delete_record():
     else:
         return 'Content type is not supported yet.'
 
+def the_job():
+    db.flush()
+
 if __name__ == '__main__':
+    scheduler = APScheduler()
+    scheduler.init_app(app)
+    scheduler.start()
+    scheduler.add_job(id='flusher', func=the_job, trigger='interval', seconds=5)
     app.run()
